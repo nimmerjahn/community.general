@@ -755,7 +755,8 @@ class RedfishUtils(object):
         # Get these entries, but does not fail if not found
         properties = ['CacheSummary', 'FirmwareVersion', 'Identifiers',
                       'Location', 'Manufacturer', 'Model', 'Name', 'Id',
-                      'PartNumber', 'SerialNumber', 'SpeedGbps', 'Status']
+                      'PartNumber', 'SerialNumber', 'SpeedGbps', 'Status',
+                      '@odata.id']
         key = "Controllers"
         deprecated_key = "StorageControllers"
 
@@ -832,7 +833,7 @@ class RedfishUtils(object):
                       'FailurePredicted', 'HotspareType', 'Id', 'Identifiers',
                       'Links', 'Manufacturer', 'MediaType', 'Model', 'Name',
                       'PartNumber', 'PhysicalLocation', 'Protocol', 'Revision',
-                      'RotationSpeedRPM', 'SerialNumber', 'Status']
+                      'RotationSpeedRPM', 'SerialNumber', 'Status', '@odata.id']
 
         # Find Storage service
         response = self.get_request(self.root_uri + systems_uri)
@@ -959,7 +960,7 @@ class RedfishUtils(object):
                       'Capacity', 'CapacityBytes', 'CapacitySources',
                       'Encrypted', 'EncryptionTypes', 'Identifiers',
                       'Operations', 'OptimumIOSizeBytes', 'AccessCapabilities',
-                      'AllocatedPools', 'Status']
+                      'AllocatedPools', 'Status', '@odata.id']
 
         # Find Storage service
         response = self.get_request(self.root_uri + systems_uri)
@@ -2337,7 +2338,7 @@ class RedfishUtils(object):
 
         # Get these entries, but does not fail if not found
         properties = ['Name', 'Id', 'ChassisType', 'PartNumber', 'AssetTag',
-                      'Manufacturer', 'IndicatorLED', 'SerialNumber', 'Model']
+                      'Manufacturer', 'IndicatorLED', 'SerialNumber', 'Model', '@odata.id']
 
         # Go through list
         for chassis_uri in self.chassis_uris:
@@ -2360,7 +2361,7 @@ class RedfishUtils(object):
         fan_results = []
         key = "Thermal"
         # Get these entries, but does not fail if not found
-        properties = ['Name', 'FanName', 'Reading', 'ReadingUnits', 'Status']
+        properties = ['Name', 'FanName', 'Reading', 'ReadingUnits', 'Status', '@odata.id']
 
         # Go through list
         for chassis_uri in self.chassis_uris:
@@ -2476,7 +2477,8 @@ class RedfishUtils(object):
         key = "Processors"
         # Get these entries, but does not fail if not found
         properties = ['Id', 'Name', 'Manufacturer', 'Model', 'MaxSpeedMHz',
-                      'ProcessorArchitecture', 'TotalCores', 'TotalThreads', 'Status']
+                      'ProcessorArchitecture', 'TotalCores', 'TotalThreads', 'Status',
+                      '@odata.id']
 
         # Search for 'key' entry and extract URI from it
         response = self.get_request(self.root_uri + systems_uri)
@@ -2526,7 +2528,8 @@ class RedfishUtils(object):
         key = "Memory"
         # Get these entries, but does not fail if not found
         properties = ['Id', 'SerialNumber', 'MemoryDeviceType', 'PartNumber',
-                      'MemoryLocation', 'RankCount', 'CapacityMiB', 'OperatingMemoryModes', 'Status', 'Manufacturer', 'Name']
+                      'MemoryLocation', 'RankCount', 'CapacityMiB', 'OperatingMemoryModes', 'Status', 'Manufacturer', 'Name',
+                      '@odata.id']
 
         # Search for 'key' entry and extract URI from it
         response = self.get_request(self.root_uri + systems_uri)
@@ -3008,7 +3011,7 @@ class RedfishUtils(object):
         # Get these entries, but does not fail if not found
         properties = ['Name', 'Model', 'SerialNumber', 'PartNumber', 'Manufacturer',
                       'FirmwareVersion', 'PowerCapacityWatts', 'PowerSupplyType',
-                      'Status']
+                      'Status', '@odata.id']
 
         # Get a list of all Chassis and build URIs, then get all PowerSupplies
         # from each Power entry in the Chassis
@@ -3062,7 +3065,7 @@ class RedfishUtils(object):
         properties = ['Status', 'HostName', 'PowerState', 'BootProgress', 'Model', 'Manufacturer',
                       'PartNumber', 'SystemType', 'AssetTag', 'ServiceTag',
                       'SerialNumber', 'SKU', 'BiosVersion', 'MemorySummary',
-                      'ProcessorSummary', 'TrustedModules', 'Name', 'Id']
+                      'ProcessorSummary', 'TrustedModules', 'Name', 'Id', '@odata.id']
 
         response = self.get_request(self.root_uri + systems_uri)
         if response['ret'] is False:
@@ -3470,7 +3473,7 @@ class RedfishUtils(object):
         # Get these entries, but does not fail if not found
         properties = ['Id', 'FirmwareVersion', 'ManagerType', 'Manufacturer', 'Model',
                       'PartNumber', 'PowerState', 'SerialNumber', 'ServiceIdentification',
-                      'Status', 'UUID']
+                      'Status', 'UUID', '@odata.id']
 
         response = self.get_request(self.root_uri + manager_uri)
         if response['ret'] is False:

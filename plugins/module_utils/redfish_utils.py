@@ -828,7 +828,7 @@ class RedfishUtils(object):
         controller_list = []
         # Get these entries, but does not fail if not found
         properties = ['BlockSizeBytes', 'CapableSpeedGbs', 'CapacityBytes',
-                      'EncryptionAbility', 'EncryptionStatus',
+                      'EncryptionAbility', 'EncryptionStatus', '@odata.id',
                       'FailurePredicted', 'HotspareType', 'Id', 'Identifiers',
                       'Links', 'Manufacturer', 'MediaType', 'Model', 'Name',
                       'PartNumber', 'PhysicalLocation', 'Protocol', 'Revision',
